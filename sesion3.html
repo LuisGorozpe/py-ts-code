@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="sesion3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="sesion3_files/libs/clipboard/clipboard.min.js"></script>
 <script src="sesion3_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="sesion3_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="sesion3_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -72,6 +72,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="sesion3_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="sesion3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="sesion3_files/libs/bootstrap/bootstrap-6afd44f53177509fd16e44e34096eacb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -161,7 +164,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="simulacion-de-series-de-tiempo" class="level1">
 <h1>Simulacion de Series de Tiempo</h1>
 <p>Definimos la funcion para graficar series de Tiempo</p>
-<div id="dbc73302" class="cell" data-execution_count="4">
+<div id="dbc73302" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_df(df, x, y, title<span class="op">=</span><span class="st">""</span>, xlabel<span class="op">=</span><span class="st">'Fecha'</span>, ylabel<span class="op">=</span><span class="st">'Numero de Pasajeros'</span>, colores<span class="op">=</span><span class="st">""</span>, dpi<span class="op">=</span><span class="dv">100</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">4</span>), dpi<span class="op">=</span>dpi)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    plt.plot(x, y, color<span class="op">=</span>colores)</span>
@@ -169,7 +172,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Programa para simular modelos MA(q)</p>
-<div id="6ec2477d" class="cell" data-execution_count="5">
+<div id="6ec2477d" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Simul_TS_MA(Q,T):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"TS MA de Orden:"</span>,<span class="bu">len</span>(Q))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    t0<span class="op">=</span>np.random.rand(<span class="bu">len</span>(Q))</span>
@@ -188,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(X)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Programa para simular modelos AR(p)</p>
-<div id="739836e6" class="cell" data-execution_count="6">
+<div id="739836e6" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Simul_TS_AR(P,T):</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"TS AR de Orden:"</span>,<span class="bu">len</span>(P))</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    t0<span class="op">=</span>np.random.rand(<span class="bu">len</span>(P))</span>
@@ -204,7 +207,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(X)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Programa para simular modelos ARMA(p,q)</p>
-<div id="ccc123e7" class="cell" data-execution_count="7">
+<div id="ccc123e7" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> Simul_TS_ARMA(P,Q,T):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"TS ARMA de Orden: p="</span><span class="op">+</span><span class="bu">str</span>(<span class="bu">len</span>(P))<span class="op">+</span><span class="st">', q='</span><span class="op">+</span><span class="bu">str</span>(<span class="bu">len</span>(Q)))</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    t0<span class="op">=</span>np.random.rand(<span class="bu">len</span>(P))</span>
@@ -222,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span>(X)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Simulamos un modelo AR</p>
-<div id="86bab429" class="cell" data-execution_count="8">
+<div id="86bab429" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>C<span class="op">=</span>[<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>]</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>T<span class="op">=</span><span class="dv">500</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>AR3_1<span class="op">=</span>Simul_TS_AR(C,T)</span>
@@ -239,7 +242,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Simulamos un modelo MA(q)</p>
-<div id="f1baf11a" class="cell" data-execution_count="9">
+<div id="f1baf11a" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>C<span class="op">=</span>[<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="fl">0.3</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>]</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>MA3_1<span class="op">=</span>Simul_TS_MA(C,T)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plot_df(MA3_1, <span class="bu">range</span>(T), MA3_1, title<span class="op">=</span><span class="st">"MA"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'$X_t$'</span>, colores<span class="op">=</span><span class="st">"purple"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -255,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Simulamos un modelo ARMA(p,q)</p>
-<div id="bc7306ae" class="cell" data-execution_count="10">
+<div id="bc7306ae" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>P<span class="op">=</span>[<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="fl">0.15</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.12</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Q<span class="op">=</span>[<span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="op">-</span><span class="dv">1</span><span class="op">/</span><span class="dv">2</span>,<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>,<span class="fl">0.2</span>]</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ARMA3_1<span class="op">=</span>Simul_TS_ARMA(P,Q,T)</span>
@@ -275,12 +278,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="descripcion-de-modelos-mediante-acf-y-pacf" class="level1">
 <h1>Descripcion de modelos mediante ACF y PACF</h1>
 <p>ACF y PACF del modelo AR</p>
-<div id="9351e059" class="cell" data-execution_count="11">
+<div id="9351e059" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficas</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">3</span>), dpi<span class="op">=</span> <span class="dv">100</span>)</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plot_acf(AR3_1, lags<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>plot_pacf(AR3_1, lags<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <div>
 <figure class="figure">
 <p><img src="sesion3_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
@@ -296,12 +299,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>ACF y PACF del modelo MA</p>
-<div id="8a515871" class="cell" data-execution_count="12">
+<div id="8a515871" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficas</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">3</span>), dpi<span class="op">=</span> <span class="dv">100</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>plot_acf(MA3_1, lags<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>plot_pacf(MA3_1, lags<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <div>
 <figure class="figure">
 <p><img src="sesion3_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
@@ -317,12 +320,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>ACF y PACF del modelo ARMA</p>
-<div id="a7514ae3" class="cell" data-execution_count="13">
+<div id="a7514ae3" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Graficas</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">16</span>,<span class="dv">3</span>), dpi<span class="op">=</span> <span class="dv">100</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>plot_acf(ARMA3_1, lags<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">0</span>])</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>plot_pacf(ARMA3_1, lags<span class="op">=</span><span class="dv">50</span>, ax<span class="op">=</span>axes[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <div>
 <figure class="figure">
 <p><img src="sesion3_files/figure-html/cell-13-output-1.png" class="img-fluid figure-img"></p>
@@ -340,30 +343,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pruebas-de-estacionariedad" class="level1">
 <h1>Pruebas de Estacionariedad</h1>
-<div id="66e0699a" class="cell" data-execution_count="14">
+<div id="66e0699a" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>adf1 <span class="op">=</span> adfuller(AR3_1)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'p-value: </span><span class="sc">{</span>adf1[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>p-value: 0.0</code></pre>
 </div>
 </div>
-<div id="96ae0030" class="cell" data-execution_count="15">
+<div id="96ae0030" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>adf2 <span class="op">=</span> adfuller(MA3_1)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'p-value: </span><span class="sc">{</span>adf2[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>p-value: 0.00016933095079124148</code></pre>
+<pre><code>p-value: 6.078223859765298e-07</code></pre>
 </div>
 </div>
-<div id="ed99498b" class="cell" data-execution_count="16">
+<div id="ed99498b" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>adf3 <span class="op">=</span> adfuller(ARMA3_1)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'p-value: </span><span class="sc">{</span>adf3[<span class="dv">1</span>]<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>p-value: 0.0002259317773816777</code></pre>
+<pre><code>p-value: 3.7864347421400604e-05</code></pre>
 </div>
 </div>
 <section id="estacionariedad-de-los-ejemplos-de-ts" class="level2">
 <h2 class="anchored" data-anchor-id="estacionariedad-de-los-ejemplos-de-ts">Estacionariedad de los ejemplos de TS</h2>
-<div id="bd62732b" class="cell" data-execution_count="17">
+<div id="bd62732b" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>Data<span class="op">=</span>[df[<span class="st">"#Passengers"</span>],df1[<span class="st">"Bricks"</span>],df2[<span class="st">"Kwh"</span>],df3[<span class="st">"Monthly Milk Production per Cow"</span>],df4[<span class="st">"Price"</span>],df5[<span class="st">"HouseSales"</span>]]</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>w<span class="op">=</span><span class="dv">0</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> k <span class="kw">in</span> Data:</span>
@@ -389,7 +392,7 @@ p-value: 0.03722371625292226</code></pre>
 </section>
 <section id="simulacion-con-statsmodels" class="level2">
 <h2 class="anchored" data-anchor-id="simulacion-con-statsmodels">Simulacion con StatsModels</h2>
-<div id="c9f1fdf0" class="cell" data-execution_count="18">
+<div id="c9f1fdf0" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate AR(1) process</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ar_params <span class="op">=</span> [<span class="dv">1</span>, <span class="op">-</span><span class="fl">0.7</span>]  <span class="co"># AR(1) with phi=0.7 </span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ma_params <span class="op">=</span> [<span class="dv">1</span>]  <span class="co"># No MA component</span></span>
@@ -397,7 +400,7 @@ p-value: 0.03722371625292226</code></pre>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>ar_process <span class="op">=</span> ArmaProcess(ar_params, ma_params)</span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>ar_data <span class="op">=</span> ar_process.generate_sample(nsample<span class="op">=</span>ns)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="09673c03" class="cell" data-execution_count="19">
+<div id="09673c03" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>plot_df(ar_data,<span class="bu">range</span>(ns),ar_data, title<span class="op">=</span><span class="st">"AR-StatModels"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'$X_t$'</span>, colores<span class="op">=</span><span class="st">"Blue"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -407,14 +410,14 @@ p-value: 0.03722371625292226</code></pre>
 </div>
 </div>
 </div>
-<div id="3f59758e" class="cell" data-execution_count="20">
+<div id="3f59758e" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate MA(1) process</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>ar_params <span class="op">=</span> [<span class="dv">1</span>]  <span class="co"># No AR component</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>ma_params <span class="op">=</span> [<span class="dv">1</span>, <span class="fl">0.5</span>]  <span class="co"># MA(1) with theta=0.5</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>ma_process <span class="op">=</span> ArmaProcess(ar_params, ma_params)</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>ma_data <span class="op">=</span> ma_process.generate_sample(nsample<span class="op">=</span>ns)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="40e49a88" class="cell" data-execution_count="21">
+<div id="40e49a88" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>plot_df(ma_data,<span class="bu">range</span>(ns),ma_data, title<span class="op">=</span><span class="st">"MA-StatModels"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'$X_t$'</span>, colores<span class="op">=</span><span class="st">"purple"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -424,14 +427,14 @@ p-value: 0.03722371625292226</code></pre>
 </div>
 </div>
 </div>
-<div id="d14378f5" class="cell" data-execution_count="22">
+<div id="d14378f5" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate ARIMA(1,1,1) process</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>ar_params <span class="op">=</span> [<span class="dv">1</span>, <span class="op">-</span><span class="fl">0.5</span>]  <span class="co"># AR(1) with phi=0.5</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>ma_params <span class="op">=</span> [<span class="dv">1</span>, <span class="fl">0.4</span>]   <span class="co"># MA(1) with theta=0.4</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>arima_process <span class="op">=</span> ArmaProcess(ar_params, ma_params)</span>
 <span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>arima_data <span class="op">=</span> np.cumsum(arima_process.generate_sample(nsample<span class="op">=</span>ns)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="7513e1f9" class="cell" data-execution_count="23">
+<div id="7513e1f9" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plot_df(arima_data,<span class="bu">range</span>(ns),arima_data, title<span class="op">=</span><span class="st">"ARIMA-StatModels"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'X_t'</span>, colores<span class="op">=</span><span class="st">"purple"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -446,7 +449,7 @@ p-value: 0.03722371625292226</code></pre>
 <section id="estimacion-de-series-de-tiempo-modelos-arima" class="level1">
 <h1>Estimacion de Series de Tiempo, Modelos ARIMA</h1>
 <p>Estimacion modelo AR</p>
-<div id="f32f2f8a" class="cell" data-execution_count="24">
+<div id="f32f2f8a" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>estim1 <span class="op">=</span> ARIMA(AR3_1, order<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>res1 <span class="op">=</span> estim1.fit()</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res1.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -454,24 +457,24 @@ p-value: 0.03722371625292226</code></pre>
 <pre><code>                               SARIMAX Results                                
 ==============================================================================
 Dep. Variable:                      y   No. Observations:                  502
-Model:                 ARIMA(2, 0, 0)   Log Likelihood                -702.386
-Date:                Mon, 20 Oct 2025   AIC                           1412.772
-Time:                        22:32:05   BIC                           1429.646
-Sample:                             0   HQIC                          1419.392
+Model:                 ARIMA(2, 0, 0)   Log Likelihood                -684.095
+Date:                Mon, 27 Oct 2025   AIC                           1376.190
+Time:                        05:00:38   BIC                           1393.064
+Sample:                             0   HQIC                          1382.810
                                 - 502                                         
 Covariance Type:                  opg                                         
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          0.0062      0.045      0.138      0.890      -0.082       0.094
-ar.L1          0.4700      0.039     11.900      0.000       0.393       0.547
-ar.L2         -0.4646      0.043    -10.737      0.000      -0.549      -0.380
-sigma2         0.9601      0.062     15.588      0.000       0.839       1.081
+const          0.0899      0.042      2.134      0.033       0.007       0.172
+ar.L1          0.5345      0.036     14.836      0.000       0.464       0.605
+ar.L2         -0.5417      0.038    -14.228      0.000      -0.616      -0.467
+sigma2         0.8922      0.051     17.343      0.000       0.791       0.993
 ===================================================================================
-Ljung-Box (L1) (Q):                   0.03   Jarque-Bera (JB):                 5.54
-Prob(Q):                              0.87   Prob(JB):                         0.06
-Heteroskedasticity (H):               1.05   Skew:                            -0.26
-Prob(H) (two-sided):                  0.76   Kurtosis:                         3.04
+Ljung-Box (L1) (Q):                   0.01   Jarque-Bera (JB):                 5.78
+Prob(Q):                              0.94   Prob(JB):                         0.06
+Heteroskedasticity (H):               0.98   Skew:                             0.13
+Prob(H) (two-sided):                  0.90   Kurtosis:                         3.46
 ===================================================================================
 
 Warnings:
@@ -479,7 +482,7 @@ Warnings:
 </div>
 </div>
 <p>Estimacion modelo MA</p>
-<div id="956bf2be" class="cell" data-execution_count="25">
+<div id="956bf2be" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>estim2 <span class="op">=</span> ARIMA(MA3_1, order<span class="op">=</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">2</span>))</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>res2 <span class="op">=</span> estim2.fit()</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res2.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -487,24 +490,24 @@ Warnings:
 <pre><code>                               SARIMAX Results                                
 ==============================================================================
 Dep. Variable:                      y   No. Observations:                  500
-Model:                 ARIMA(0, 0, 2)   Log Likelihood                -761.130
-Date:                Mon, 20 Oct 2025   AIC                           1530.260
-Time:                        22:32:05   BIC                           1547.119
-Sample:                             0   HQIC                          1536.876
+Model:                 ARIMA(0, 0, 2)   Log Likelihood                -747.257
+Date:                Mon, 27 Oct 2025   AIC                           1502.514
+Time:                        05:00:38   BIC                           1519.373
+Sample:                             0   HQIC                          1509.129
                                 - 500                                         
 Covariance Type:                  opg                                         
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const         -0.0664      0.060     -1.115      0.265      -0.183       0.050
-ma.L1          0.5998      0.194      3.096      0.002       0.220       0.979
-ma.L2         -0.3997      0.089     -4.486      0.000      -0.574      -0.225
-sigma2         1.2161      0.251      4.853      0.000       0.725       1.707
+const          0.0715      0.058      1.238      0.216      -0.042       0.185
+ma.L1          0.5939      1.259      0.472      0.637      -1.874       3.061
+ma.L2         -0.4061      0.515     -0.789      0.430      -1.415       0.603
+sigma2         1.1500      1.453      0.792      0.429      -1.697       3.997
 ===================================================================================
-Ljung-Box (L1) (Q):                   0.39   Jarque-Bera (JB):                 1.30
-Prob(Q):                              0.53   Prob(JB):                         0.52
-Heteroskedasticity (H):               1.02   Skew:                             0.11
-Prob(H) (two-sided):                  0.91   Kurtosis:                         3.10
+Ljung-Box (L1) (Q):                   3.00   Jarque-Bera (JB):                 5.98
+Prob(Q):                              0.08   Prob(JB):                         0.05
+Heteroskedasticity (H):               1.05   Skew:                            -0.19
+Prob(H) (two-sided):                  0.77   Kurtosis:                         2.63
 ===================================================================================
 
 Warnings:
@@ -512,7 +515,7 @@ Warnings:
 </div>
 </div>
 <p>Estimacion modelo ARMA</p>
-<div id="79b1ea62" class="cell" data-execution_count="26">
+<div id="79b1ea62" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>estim3 <span class="op">=</span> ARIMA(ARMA3_1, order<span class="op">=</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">2</span>))</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>res3 <span class="op">=</span> estim3.fit()</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(res3.summary())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -520,34 +523,226 @@ Warnings:
 <pre><code>                               SARIMAX Results                                
 ==============================================================================
 Dep. Variable:                      y   No. Observations:                  506
-Model:                 ARIMA(2, 0, 2)   Log Likelihood                -757.336
-Date:                Mon, 20 Oct 2025   AIC                           1526.672
-Time:                        22:32:05   BIC                           1552.031
-Sample:                             0   HQIC                          1536.618
+Model:                 ARIMA(2, 0, 2)   Log Likelihood                -796.145
+Date:                Mon, 27 Oct 2025   AIC                           1604.291
+Time:                        05:00:38   BIC                           1629.650
+Sample:                             0   HQIC                          1614.237
                                 - 506                                         
 Covariance Type:                  opg                                         
 ==============================================================================
                  coef    std err          z      P&gt;|z|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const         -0.0347      0.151     -0.230      0.818      -0.331       0.261
-ar.L1          0.8177      0.110      7.444      0.000       0.602       1.033
-ar.L2          0.1256      0.091      1.387      0.165      -0.052       0.303
-ma.L1         -0.2651      0.097     -2.744      0.006      -0.454      -0.076
-ma.L2         -0.5587      0.064     -8.678      0.000      -0.685      -0.433
-sigma2         1.1671      0.075     15.640      0.000       1.021       1.313
+const          1.4682      0.063     23.442      0.000       1.345       1.591
+ar.L1          0.2221      0.104      2.141      0.032       0.019       0.425
+ar.L2         -0.5386      0.058     -9.237      0.000      -0.653      -0.424
+ma.L1          0.3600      0.115      3.134      0.002       0.135       0.585
+ma.L2          0.2215      0.093      2.382      0.017       0.039       0.404
+sigma2         1.3599      0.086     15.854      0.000       1.192       1.528
 ===================================================================================
-Ljung-Box (L1) (Q):                   0.25   Jarque-Bera (JB):                 4.76
-Prob(Q):                              0.62   Prob(JB):                         0.09
-Heteroskedasticity (H):               0.93   Skew:                            -0.24
-Prob(H) (two-sided):                  0.63   Kurtosis:                         3.02
+Ljung-Box (L1) (Q):                   0.44   Jarque-Bera (JB):                 0.01
+Prob(Q):                              0.51   Prob(JB):                         1.00
+Heteroskedasticity (H):               1.02   Skew:                             0.01
+Prob(H) (two-sided):                  0.92   Kurtosis:                         3.01
 ===================================================================================
 
 Warnings:
 [1] Covariance matrix calculated using the outer product of gradients (complex-step).</code></pre>
 </div>
 </div>
-<div id="04e46df2" class="cell" data-execution_count="27">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>session_info.show(html<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="prediccion-basica" class="level1">
+<h1>Prediccion Basica</h1>
+<div id="340ae457" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>tpre<span class="op">=</span><span class="dv">10</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plot_df(res1.forecast(steps<span class="op">=</span>tpre), <span class="bu">range</span>(tpre),res1.forecast(steps<span class="op">=</span>tpre), title<span class="op">=</span><span class="st">"AR(3)-Prediccion"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'$X_t$'</span>, colores<span class="op">=</span><span class="st">"black"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion3_files/figure-html/cell-27-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="43da739c" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>plot_df(res2.forecast(steps<span class="op">=</span>tpre), <span class="bu">range</span>(tpre),res2.forecast(steps<span class="op">=</span>tpre), title<span class="op">=</span><span class="st">"MA(3)-Prediccion"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'$X_t$'</span>, colores<span class="op">=</span><span class="st">"Red"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion3_files/figure-html/cell-28-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="8ca03efd" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plot_df(res3.forecast(steps<span class="op">=</span>tpre), <span class="bu">range</span>(tpre),res3.forecast(steps<span class="op">=</span>tpre), title<span class="op">=</span><span class="st">"ARMA(3)-Prediccion"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'X_t'</span>, colores<span class="op">=</span><span class="st">"Blue"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion3_files/figure-html/cell-29-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="statsforecast" class="level2">
+<h2 class="anchored" data-anchor-id="statsforecast">Statsforecast</h2>
+<div id="01e523d2" class="cell" data-execution_count="41">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsforecast <span class="im">import</span> StatsForecast</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsforecast.models <span class="im">import</span> AutoARIMA</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> statsforecast.utils <span class="im">import</span> AirPassengersDF</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>dff <span class="op">=</span> AirPassengersDF</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="816e7b7f" class="cell" data-execution_count="42">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>plot_df(dff[<span class="st">"y"</span>], <span class="bu">range</span>(<span class="bu">len</span>(dff)),dff[<span class="st">"y"</span>], title<span class="op">=</span><span class="st">"Pasajeros"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'X_t'</span>, colores<span class="op">=</span><span class="st">"Blue"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion3_files/figure-html/cell-31-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="5244c8a8" class="cell" data-execution_count="44">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>sf <span class="op">=</span> StatsForecast(</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    models<span class="op">=</span>[AutoARIMA(season_length<span class="op">=</span><span class="dv">12</span>)],</span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    freq<span class="op">=</span><span class="st">'ME'</span>,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>sf.fit(dff)</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>dff_forecast<span class="op">=</span>sf.predict(h<span class="op">=</span><span class="dv">12</span>, level<span class="op">=</span>[<span class="dv">95</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="097a755e" class="cell" data-execution_count="45">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>dff_forecast</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">unique_id</th>
+<th data-quarto-table-cell-role="th">ds</th>
+<th data-quarto-table-cell-role="th">AutoARIMA</th>
+<th data-quarto-table-cell-role="th">AutoARIMA-lo-95</th>
+<th data-quarto-table-cell-role="th">AutoARIMA-hi-95</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1.0</td>
+<td>1961-01-31</td>
+<td>444.309575</td>
+<td>421.279342</td>
+<td>467.339808</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>1.0</td>
+<td>1961-02-28</td>
+<td>418.213738</td>
+<td>390.227635</td>
+<td>446.199842</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>1.0</td>
+<td>1961-03-31</td>
+<td>446.243407</td>
+<td>412.910032</td>
+<td>479.576782</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>1.0</td>
+<td>1961-04-30</td>
+<td>488.234223</td>
+<td>450.621361</td>
+<td>525.847084</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>1.0</td>
+<td>1961-05-31</td>
+<td>499.237066</td>
+<td>457.694834</td>
+<td>540.779298</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>1.0</td>
+<td>1961-06-30</td>
+<td>562.236186</td>
+<td>517.130961</td>
+<td>607.341411</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>1.0</td>
+<td>1961-07-31</td>
+<td>649.236458</td>
+<td>600.822427</td>
+<td>697.650489</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>1.0</td>
+<td>1961-08-31</td>
+<td>633.236374</td>
+<td>581.727786</td>
+<td>684.744962</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>1.0</td>
+<td>1961-09-30</td>
+<td>535.236400</td>
+<td>480.808289</td>
+<td>589.664511</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>1.0</td>
+<td>1961-10-31</td>
+<td>488.236392</td>
+<td>431.037766</td>
+<td>545.435017</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>1.0</td>
+<td>1961-11-30</td>
+<td>417.236394</td>
+<td>357.395332</td>
+<td>477.077457</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>1.0</td>
+<td>1961-12-31</td>
+<td>459.236394</td>
+<td>396.864759</td>
+<td>521.608028</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="360c23e2" class="cell" data-execution_count="46">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>plot_df(dff_forecast, <span class="bu">range</span>(<span class="bu">len</span>(dff_forecast)),dff_forecast[<span class="st">"AutoARIMA"</span>], title<span class="op">=</span><span class="st">"Pasajeros"</span>, xlabel<span class="op">=</span><span class="st">'t'</span>, ylabel<span class="op">=</span><span class="st">'X_t'</span>, colores<span class="op">=</span><span class="st">"Blue"</span>, dpi<span class="op">=</span><span class="dv">100</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion3_files/figure-html/cell-34-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="04e46df2" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>session_info.show(html<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>-----
 matplotlib          3.10.6
@@ -555,6 +750,7 @@ numpy               2.3.3
 pandas              2.3.3
 seaborn             0.13.2
 session_info        v1.0.1
+statsforecast       2.0.2
 statsmodels         0.14.5
 -----
 IPython             9.6.0
@@ -566,9 +762,10 @@ notebook            7.4.7
 Python 3.13.5 | packaged by conda-forge | (main, Jun 16 2025, 08:27:50) [GCC 13.3.0]
 Linux-6.8.0-85-generic-x86_64-with-glibc2.39
 -----
-Session information updated at 2025-10-20 22:32</code></pre>
+Session information updated at 2025-10-27 05:14</code></pre>
 </div>
 </div>
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{e._ascencio_g.,
