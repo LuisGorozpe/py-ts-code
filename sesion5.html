@@ -132,7 +132,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="0ee1682c" class="cell" data-execution_count="1">
+<div id="0ee1682c" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> read_excel <span class="co"># funcion para leer archivos de excel</span></span>
@@ -159,17 +159,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sktime.utils <span class="im">import</span> plot_series</span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">"ignore"</span>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> session_info</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cd295ce2" class="cell" data-execution_count="2">
+<div id="cd295ce2" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install xlrd</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install sktime</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install seaborn</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="81efc35a" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h<span class="op">=</span><span class="dv">15</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="81efc35a" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>h<span class="op">=</span><span class="dv">30</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="190c74fb" class="cell" data-execution_count="4">
+<div id="190c74fb" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'AirPassengers.csv'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> read_excel(<span class="st">'ClayBricks.xls'</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> read_excel(<span class="st">'Electricity.xls'</span>)</span>
@@ -177,13 +179,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df4 <span class="op">=</span> read_excel(<span class="st">'JapaneseCars.xls'</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>df5 <span class="op">=</span> read_excel(<span class="st">'HouseSales.xls'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="1956fcd2" class="cell" data-execution_count="5">
+<section id="serie-1" class="level1">
+<h1>Serie 1</h1>
+<div id="1956fcd2" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dates<span class="op">=</span>pd.to_datetime(df[<span class="st">"Month"</span>])</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ts<span class="op">=</span>pd.Series(np.array(df[<span class="st">"#Passengers"</span>]),index<span class="op">=</span>dates)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="9f0ab4e0" class="cell" data-execution_count="6">
+<div id="9f0ab4e0" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>ts</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>Month
 1949-01-01    112
 1949-02-01    118
@@ -199,40 +203,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 Length: 144, dtype: int64</code></pre>
 </div>
 </div>
-<div id="cf06c05f" class="cell" data-execution_count="7">
+<div id="cf06c05f" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pmdarima.datasets <span class="im">import</span> load_wineind</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># this is a dataset from R</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>wineind <span class="op">=</span> load_wineind().astype(np.float64)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="cb7d7d2b" class="cell" data-execution_count="8">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>wineind</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>array([15136., 16733., 20016., 17708., 18019., 19227., 22893., 23739.,
-       21133., 22591., 26786., 29740., 15028., 17977., 20008., 21354.,
-       19498., 22125., 25817., 28779., 20960., 22254., 27392., 29945.,
-       16933., 17892., 20533., 23569., 22417., 22084., 26580., 27454.,
-       24081., 23451., 28991., 31386., 16896., 20045., 23471., 21747.,
-       25621., 23859., 25500., 30998., 24475., 23145., 29701., 34365.,
-       17556., 22077., 25702., 22214., 26886., 23191., 27831., 35406.,
-       23195., 25110., 30009., 36242., 18450., 21845., 26488., 22394.,
-       28057., 25451., 24872., 33424., 24052., 28449., 33533., 37351.,
-       19969., 21701., 26249., 24493., 24603., 26485., 30723., 34569.,
-       26689., 26157., 32064., 38870., 21337., 19419., 23166., 28286.,
-       24570., 24001., 33151., 24878., 26804., 28967., 33311., 40226.,
-       20504., 23060., 23562., 27562., 23940., 24584., 34303., 25517.,
-       23494., 29095., 32903., 34379., 16991., 21109., 23740., 25552.,
-       21752., 20294., 29009., 25500., 24166., 26960., 31222., 38641.,
-       14672., 17543., 25453., 32683., 22449., 22316., 27595., 25451.,
-       25421., 25288., 32568., 35110., 16052., 22146., 21198., 19543.,
-       22084., 23816., 29961., 26773., 26635., 26972., 30207., 38687.,
-       16974., 21697., 24179., 23757., 25013., 24019., 30345., 24488.,
-       25156., 25650., 30923., 37240., 17466., 19463., 24352., 26805.,
-       25236., 24735., 29356., 31234., 22724., 28496., 32857., 37198.,
-       13652., 22784., 23565., 26323., 23779., 27549., 29660., 23356.])</code></pre>
+<div id="cb7d7d2b" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(wineind)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>176</code></pre>
 </div>
 </div>
-<div id="30f4672e" class="cell" data-execution_count="9">
+<div id="30f4672e" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>stepwise_fit <span class="op">=</span> pm.auto_arima(wineind, start_p<span class="op">=</span><span class="dv">1</span>, start_q<span class="op">=</span><span class="dv">1</span>,</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                              max_p<span class="op">=</span><span class="dv">3</span>, max_q<span class="op">=</span><span class="dv">3</span>, m<span class="op">=</span><span class="dv">12</span>, start_P<span class="op">=</span><span class="dv">0</span>, </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                              seasonal<span class="op">=</span><span class="va">True</span>,</span>
@@ -242,32 +225,32 @@ Length: 144, dtype: int64</code></pre>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>                              stepwise<span class="op">=</span><span class="va">True</span>)  <span class="co"># set to stepwise</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Performing stepwise search to minimize aic
- ARIMA(1,1,1)(0,1,1)[12]             : AIC=3066.492, Time=0.74 sec
- ARIMA(0,1,0)(0,1,0)[12]             : AIC=3131.408, Time=0.05 sec
- ARIMA(1,1,0)(1,1,0)[12]             : AIC=3097.884, Time=0.21 sec
- ARIMA(0,1,1)(0,1,1)[12]             : AIC=3066.329, Time=0.42 sec
- ARIMA(0,1,1)(0,1,0)[12]             : AIC=3089.456, Time=0.05 sec
- ARIMA(0,1,1)(1,1,1)[12]             : AIC=3067.457, Time=0.46 sec
- ARIMA(0,1,1)(0,1,2)[12]             : AIC=3067.481, Time=1.34 sec
- ARIMA(0,1,1)(1,1,0)[12]             : AIC=3071.631, Time=0.26 sec
- ARIMA(0,1,1)(1,1,2)[12]             : AIC=inf, Time=5.83 sec
- ARIMA(0,1,0)(0,1,1)[12]             : AIC=3117.921, Time=0.28 sec
- ARIMA(0,1,2)(0,1,1)[12]             : AIC=3065.533, Time=0.45 sec
- ARIMA(0,1,2)(0,1,0)[12]             : AIC=3087.883, Time=0.08 sec
- ARIMA(0,1,2)(1,1,1)[12]             : AIC=3066.239, Time=0.67 sec
- ARIMA(0,1,2)(0,1,2)[12]             : AIC=3066.373, Time=1.70 sec
- ARIMA(0,1,2)(1,1,0)[12]             : AIC=3070.728, Time=0.24 sec
- ARIMA(0,1,2)(1,1,2)[12]             : AIC=inf, Time=4.70 sec
- ARIMA(1,1,2)(0,1,1)[12]             : AIC=3066.424, Time=1.30 sec
- ARIMA(0,1,3)(0,1,1)[12]             : AIC=3066.351, Time=2.05 sec
- ARIMA(1,1,3)(0,1,1)[12]             : AIC=3068.295, Time=2.28 sec
- ARIMA(0,1,2)(0,1,1)[12] intercept   : AIC=3066.787, Time=0.27 sec
+ ARIMA(1,1,1)(0,1,1)[12]             : AIC=3066.492, Time=0.26 sec
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=3131.408, Time=0.02 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=3097.884, Time=0.07 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=3066.329, Time=0.08 sec
+ ARIMA(0,1,1)(0,1,0)[12]             : AIC=3089.456, Time=0.03 sec
+ ARIMA(0,1,1)(1,1,1)[12]             : AIC=3067.457, Time=0.14 sec
+ ARIMA(0,1,1)(0,1,2)[12]             : AIC=3067.481, Time=0.22 sec
+ ARIMA(0,1,1)(1,1,0)[12]             : AIC=3071.631, Time=0.08 sec
+ ARIMA(0,1,1)(1,1,2)[12]             : AIC=inf, Time=1.44 sec
+ ARIMA(0,1,0)(0,1,1)[12]             : AIC=3117.921, Time=0.14 sec
+ ARIMA(0,1,2)(0,1,1)[12]             : AIC=3065.533, Time=0.10 sec
+ ARIMA(0,1,2)(0,1,0)[12]             : AIC=3087.883, Time=0.04 sec
+ ARIMA(0,1,2)(1,1,1)[12]             : AIC=3066.239, Time=0.19 sec
+ ARIMA(0,1,2)(0,1,2)[12]             : AIC=3066.373, Time=0.35 sec
+ ARIMA(0,1,2)(1,1,0)[12]             : AIC=3070.728, Time=0.10 sec
+ ARIMA(0,1,2)(1,1,2)[12]             : AIC=inf, Time=1.07 sec
+ ARIMA(1,1,2)(0,1,1)[12]             : AIC=3066.424, Time=0.25 sec
+ ARIMA(0,1,3)(0,1,1)[12]             : AIC=3066.351, Time=0.28 sec
+ ARIMA(1,1,3)(0,1,1)[12]             : AIC=3068.295, Time=0.50 sec
+ ARIMA(0,1,2)(0,1,1)[12] intercept   : AIC=3066.787, Time=0.12 sec
 
 Best model:  ARIMA(0,1,2)(0,1,1)[12]          
-Total fit time: 23.398 seconds</code></pre>
+Total fit time: 5.521 seconds</code></pre>
 </div>
 </div>
-<div id="9a5a8008" class="cell" data-execution_count="10">
+<div id="9a5a8008" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df_fit <span class="op">=</span> pm.auto_arima(ts, start_p<span class="op">=</span><span class="dv">1</span>, start_q<span class="op">=</span><span class="dv">1</span>,</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                              max_p<span class="op">=</span><span class="dv">3</span>, max_q<span class="op">=</span><span class="dv">3</span>, m<span class="op">=</span><span class="dv">12</span>, start_P<span class="op">=</span><span class="dv">0</span>, </span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                              seasonal<span class="op">=</span><span class="va">True</span>,</span>
@@ -277,32 +260,32 @@ Total fit time: 23.398 seconds</code></pre>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>                              stepwise<span class="op">=</span><span class="va">True</span>)  <span class="co"># set to stepwise</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Performing stepwise search to minimize aic
- ARIMA(1,1,1)(0,1,1)[12]             : AIC=1022.896, Time=0.29 sec
- ARIMA(0,1,0)(0,1,0)[12]             : AIC=1031.508, Time=0.03 sec
- ARIMA(1,1,0)(1,1,0)[12]             : AIC=1020.393, Time=0.10 sec
- ARIMA(0,1,1)(0,1,1)[12]             : AIC=1021.003, Time=0.19 sec
- ARIMA(1,1,0)(0,1,0)[12]             : AIC=1020.393, Time=0.04 sec
- ARIMA(1,1,0)(2,1,0)[12]             : AIC=1019.239, Time=1.13 sec
- ARIMA(1,1,0)(2,1,1)[12]             : AIC=inf, Time=3.89 sec
- ARIMA(1,1,0)(1,1,1)[12]             : AIC=1020.493, Time=0.33 sec
- ARIMA(0,1,0)(2,1,0)[12]             : AIC=1032.120, Time=0.47 sec
- ARIMA(2,1,0)(2,1,0)[12]             : AIC=1021.120, Time=0.63 sec
- ARIMA(1,1,1)(2,1,0)[12]             : AIC=1021.032, Time=1.02 sec
- ARIMA(0,1,1)(2,1,0)[12]             : AIC=1019.178, Time=0.55 sec
- ARIMA(0,1,1)(1,1,0)[12]             : AIC=1020.425, Time=0.13 sec
- ARIMA(0,1,1)(2,1,1)[12]             : AIC=inf, Time=3.10 sec
- ARIMA(0,1,1)(1,1,1)[12]             : AIC=1020.327, Time=0.38 sec
- ARIMA(0,1,2)(2,1,0)[12]             : AIC=1021.148, Time=0.60 sec
- ARIMA(1,1,2)(2,1,0)[12]             : AIC=1022.805, Time=1.04 sec
- ARIMA(0,1,1)(2,1,0)[12] intercept   : AIC=1021.017, Time=0.76 sec
+ ARIMA(1,1,1)(0,1,1)[12]             : AIC=1022.896, Time=0.15 sec
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=1031.508, Time=0.02 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=1020.393, Time=0.06 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=1021.003, Time=0.08 sec
+ ARIMA(1,1,0)(0,1,0)[12]             : AIC=1020.393, Time=0.03 sec
+ ARIMA(1,1,0)(2,1,0)[12]             : AIC=1019.239, Time=0.17 sec
+ ARIMA(1,1,0)(2,1,1)[12]             : AIC=inf, Time=1.22 sec
+ ARIMA(1,1,0)(1,1,1)[12]             : AIC=1020.493, Time=0.19 sec
+ ARIMA(0,1,0)(2,1,0)[12]             : AIC=1032.120, Time=0.21 sec
+ ARIMA(2,1,0)(2,1,0)[12]             : AIC=1021.120, Time=0.34 sec
+ ARIMA(1,1,1)(2,1,0)[12]             : AIC=1021.032, Time=0.33 sec
+ ARIMA(0,1,1)(2,1,0)[12]             : AIC=1019.178, Time=0.20 sec
+ ARIMA(0,1,1)(1,1,0)[12]             : AIC=1020.425, Time=0.07 sec
+ ARIMA(0,1,1)(2,1,1)[12]             : AIC=inf, Time=1.10 sec
+ ARIMA(0,1,1)(1,1,1)[12]             : AIC=1020.327, Time=0.25 sec
+ ARIMA(0,1,2)(2,1,0)[12]             : AIC=1021.148, Time=0.23 sec
+ ARIMA(1,1,2)(2,1,0)[12]             : AIC=1022.805, Time=0.40 sec
+ ARIMA(0,1,1)(2,1,0)[12] intercept   : AIC=1021.017, Time=0.44 sec
 
 Best model:  ARIMA(0,1,1)(2,1,0)[12]          
-Total fit time: 14.697 seconds</code></pre>
+Total fit time: 5.497 seconds</code></pre>
 </div>
 </div>
-<div id="a341d343" class="cell" data-execution_count="11">
+<div id="a341d343" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df_fit.summary()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <table class="simpletable caption-top table table-sm table-striped small">
 <caption>SARIMAX Results</caption>
 <tbody>
@@ -320,13 +303,13 @@ Total fit time: 14.697 seconds</code></pre>
 </tr>
 <tr class="odd">
 <th data-quarto-table-cell-role="th">Date:</th>
-<td>Mon, 03 Nov 2025</td>
+<td>Sat, 08 Nov 2025</td>
 <th data-quarto-table-cell-role="th">AIC</th>
 <td>1019.178</td>
 </tr>
 <tr class="even">
 <th data-quarto-table-cell-role="th">Time:</th>
-<td>11:36:10</td>
+<td>05:24:00</td>
 <th data-quarto-table-cell-role="th">BIC</th>
 <td>1030.679</td>
 </tr>
@@ -434,10 +417,10 @@ Total fit time: 14.697 seconds</code></pre>
 <br><br>Warnings:<br>[1] Covariance matrix calculated using the outer product of gradients (complex-step).
 </div>
 </div>
-<div id="447ff018" class="cell" data-execution_count="12">
+<div id="447ff018" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>ts_pre<span class="op">=</span>df_fit.predict(h)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="5bba4ccc" class="cell" data-execution_count="13">
+<div id="5bba4ccc" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>plot_series(ts,ts_pre,labels<span class="op">=</span>[<span class="st">"train"</span>,<span class="st">"Auto-ARIMA"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
 <div>
@@ -447,6 +430,575 @@ Total fit time: 14.697 seconds</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="serie-2" class="level1">
+<h1>Serie 2</h1>
+<div id="d92285f4" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>dates1<span class="op">=</span>pd.to_datetime(df1[<span class="st">"Dates"</span>])</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>ts1<span class="op">=</span>pd.Series(np.array(df1[<span class="st">"Bricks"</span>]),index<span class="op">=</span>dates1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="da4c6fe4" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ts1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>Dates
+1956-03-01    189
+1956-04-01    204
+1956-05-01    208
+1956-06-01    197
+1956-07-01    187
+             ... 
+1968-09-01    476
+1968-10-01    443
+1968-11-01    421
+1968-12-01    472
+1969-01-01    494
+Length: 155, dtype: int64</code></pre>
+</div>
+</div>
+<div id="51146316" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>df1_fit <span class="op">=</span> pm.auto_arima(ts1, start_p<span class="op">=</span><span class="dv">1</span>, start_q<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                              max_p<span class="op">=</span><span class="dv">4</span>, max_q<span class="op">=</span><span class="dv">4</span>, m<span class="op">=</span><span class="dv">12</span>, start_P<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                              seasonal<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                              d<span class="op">=</span><span class="dv">1</span>, D<span class="op">=</span><span class="dv">1</span>, trace<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>                              error_action<span class="op">=</span><span class="st">'ignore'</span>,  <span class="co"># don't want to know if an order does not work</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>                              suppress_warnings<span class="op">=</span><span class="va">True</span>,  <span class="co"># don't want convergence warnings</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>                              stepwise<span class="op">=</span><span class="va">True</span>)  <span class="co"># set to stepwise</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Performing stepwise search to minimize aic
+ ARIMA(1,1,1)(0,1,1)[12]             : AIC=1323.673, Time=0.32 sec
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=1366.878, Time=0.02 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=1336.158, Time=0.08 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=1320.197, Time=0.15 sec
+ ARIMA(0,1,1)(0,1,0)[12]             : AIC=1365.182, Time=0.04 sec
+ ARIMA(0,1,1)(1,1,1)[12]             : AIC=1321.846, Time=0.30 sec
+ ARIMA(0,1,1)(0,1,2)[12]             : AIC=1321.857, Time=0.45 sec
+ ARIMA(0,1,1)(1,1,0)[12]             : AIC=1337.557, Time=0.08 sec
+ ARIMA(0,1,1)(1,1,2)[12]             : AIC=inf, Time=1.69 sec
+ ARIMA(0,1,0)(0,1,1)[12]             : AIC=1320.760, Time=0.08 sec
+ ARIMA(0,1,2)(0,1,1)[12]             : AIC=1321.569, Time=0.20 sec
+ ARIMA(1,1,0)(0,1,1)[12]             : AIC=1319.848, Time=0.12 sec
+ ARIMA(1,1,0)(0,1,0)[12]             : AIC=1364.159, Time=0.02 sec
+ ARIMA(1,1,0)(1,1,1)[12]             : AIC=1321.518, Time=0.20 sec
+ ARIMA(1,1,0)(0,1,2)[12]             : AIC=1321.535, Time=0.43 sec
+ ARIMA(1,1,0)(1,1,2)[12]             : AIC=inf, Time=1.39 sec
+ ARIMA(2,1,0)(0,1,1)[12]             : AIC=1321.381, Time=0.17 sec
+ ARIMA(2,1,1)(0,1,1)[12]             : AIC=1323.363, Time=0.31 sec
+ ARIMA(1,1,0)(0,1,1)[12] intercept   : AIC=1321.729, Time=0.16 sec
+
+Best model:  ARIMA(1,1,0)(0,1,1)[12]          
+Total fit time: 6.199 seconds</code></pre>
+</div>
+</div>
+<div id="b766dcb2" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ts1_pre<span class="op">=</span>df1_fit.predict(h)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>plot_series(ts1,ts1_pre,labels<span class="op">=</span>[<span class="st">"train"</span>,<span class="st">"Auto-ARIMA"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion5_files/figure-html/cell-18-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="serie-3" class="level1">
+<h1>Serie 3</h1>
+<div id="c1cbf518" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dates2<span class="op">=</span>pd.to_datetime(df2[<span class="st">"Month and year"</span>])</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ts2<span class="op">=</span>pd.Series(np.array(df2[<span class="st">"Kwh"</span>]),index<span class="op">=</span>dates2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="40e8094f" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ts2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>Month and year
+1956-01-01     1254
+1956-02-01     1290
+1956-03-01     1379
+1956-04-01     1346
+1956-05-01     1535
+              ...  
+1995-04-01    13032
+1995-05-01    14268
+1995-06-01    14473
+1995-07-01    15359
+1995-08-01    14457
+Length: 476, dtype: int64</code></pre>
+</div>
+</div>
+<div id="4ecf097f" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>df2_fit <span class="op">=</span> pm.auto_arima(ts2, start_p<span class="op">=</span><span class="dv">1</span>, start_q<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>                              max_p<span class="op">=</span><span class="dv">4</span>, max_q<span class="op">=</span><span class="dv">4</span>, m<span class="op">=</span><span class="dv">12</span>, start_P<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                              seasonal<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                              d<span class="op">=</span><span class="dv">1</span>, D<span class="op">=</span><span class="dv">1</span>, trace<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                              error_action<span class="op">=</span><span class="st">'ignore'</span>,  <span class="co"># don't want to know if an order does not work</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>                              suppress_warnings<span class="op">=</span><span class="va">True</span>,  <span class="co"># don't want convergence warnings</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>                              stepwise<span class="op">=</span><span class="va">True</span>)  <span class="co"># set to stepwise</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Performing stepwise search to minimize aic
+ ARIMA(1,1,1)(0,1,1)[12]             : AIC=6065.732, Time=0.56 sec
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=6401.709, Time=0.03 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=6188.054, Time=0.19 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=6064.304, Time=0.41 sec
+ ARIMA(0,1,1)(0,1,0)[12]             : AIC=6221.772, Time=0.08 sec
+ ARIMA(0,1,1)(1,1,1)[12]             : AIC=6064.317, Time=0.55 sec
+ ARIMA(0,1,1)(0,1,2)[12]             : AIC=6063.199, Time=1.87 sec
+ ARIMA(0,1,1)(1,1,2)[12]             : AIC=6050.038, Time=5.17 sec
+ ARIMA(0,1,1)(2,1,2)[12]             : AIC=6051.909, Time=5.06 sec
+ ARIMA(0,1,1)(2,1,1)[12]             : AIC=6058.186, Time=1.21 sec
+ ARIMA(0,1,0)(1,1,2)[12]             : AIC=6226.586, Time=1.12 sec
+ ARIMA(1,1,1)(1,1,2)[12]             : AIC=6058.202, Time=6.80 sec
+ ARIMA(0,1,2)(1,1,2)[12]             : AIC=6055.825, Time=5.88 sec
+ ARIMA(1,1,0)(1,1,2)[12]             : AIC=inf, Time=3.59 sec
+ ARIMA(1,1,2)(1,1,2)[12]             : AIC=inf, Time=5.61 sec
+ ARIMA(0,1,1)(1,1,2)[12] intercept   : AIC=inf, Time=4.30 sec
+
+Best model:  ARIMA(0,1,1)(1,1,2)[12]          
+Total fit time: 42.456 seconds</code></pre>
+</div>
+</div>
+<div id="c02bb877" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ts2_pre<span class="op">=</span>df2_fit.predict(h)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>plot_series(ts2,ts2_pre,labels<span class="op">=</span>[<span class="st">"train"</span>,<span class="st">"Auto-ARIMA"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion5_files/figure-html/cell-22-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="serie-4" class="level1">
+<h1>Serie 4</h1>
+<div id="641afe71" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df3</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Monthly Milk Production per Cow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>589</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>561</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>640</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>656</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>727</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">163</th>
+<td>858</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">164</th>
+<td>817</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">165</th>
+<td>827</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">166</th>
+<td>797</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">167</th>
+<td>843</td>
+</tr>
+</tbody>
+</table>
+
+<p>168 rows × 1 columns</p>
+</div>
+</div>
+</div>
+<div id="11f17e58" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">#dates3=pd.to_datetime(df3["Monthly Milk Production per Cow"])</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>ts3<span class="op">=</span>pd.Series(np.array(df3[<span class="st">"Monthly Milk Production per Cow"</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2b2d060a" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df3_fit <span class="op">=</span> pm.auto_arima(ts3, start_p<span class="op">=</span><span class="dv">1</span>, start_q<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                              max_p<span class="op">=</span><span class="dv">4</span>, max_q<span class="op">=</span><span class="dv">4</span>, m<span class="op">=</span><span class="dv">12</span>, start_P<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                              seasonal<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                              d<span class="op">=</span><span class="dv">1</span>, D<span class="op">=</span><span class="dv">1</span>, trace<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>                              error_action<span class="op">=</span><span class="st">'ignore'</span>,  <span class="co"># don't want to know if an order does not work</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>                              suppress_warnings<span class="op">=</span><span class="va">True</span>,  <span class="co"># don't want convergence warnings</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>                              stepwise<span class="op">=</span><span class="va">True</span>)  <span class="co"># set to stepwise</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Performing stepwise search to minimize aic
+ ARIMA(1,1,1)(0,1,1)[12]             : AIC=1068.064, Time=0.14 sec
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=1119.969, Time=0.01 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=1081.584, Time=0.05 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=1066.296, Time=0.10 sec
+ ARIMA(0,1,1)(0,1,0)[12]             : AIC=1114.995, Time=0.02 sec
+ ARIMA(0,1,1)(1,1,1)[12]             : AIC=1068.030, Time=0.15 sec
+ ARIMA(0,1,1)(0,1,2)[12]             : AIC=1067.976, Time=0.39 sec
+ ARIMA(0,1,1)(1,1,0)[12]             : AIC=1082.123, Time=0.07 sec
+ ARIMA(0,1,1)(1,1,2)[12]             : AIC=inf, Time=1.21 sec
+ ARIMA(0,1,0)(0,1,1)[12]             : AIC=1072.280, Time=0.07 sec
+ ARIMA(0,1,2)(0,1,1)[12]             : AIC=1067.796, Time=0.13 sec
+ ARIMA(1,1,0)(0,1,1)[12]             : AIC=1066.207, Time=0.10 sec
+ ARIMA(1,1,0)(0,1,0)[12]             : AIC=1114.845, Time=0.02 sec
+ ARIMA(1,1,0)(1,1,1)[12]             : AIC=1067.913, Time=0.14 sec
+ ARIMA(1,1,0)(0,1,2)[12]             : AIC=1067.857, Time=0.27 sec
+ ARIMA(1,1,0)(1,1,2)[12]             : AIC=inf, Time=0.87 sec
+ ARIMA(2,1,0)(0,1,1)[12]             : AIC=1067.922, Time=0.13 sec
+ ARIMA(2,1,1)(0,1,1)[12]             : AIC=1066.696, Time=0.45 sec
+ ARIMA(1,1,0)(0,1,1)[12] intercept   : AIC=1068.200, Time=0.13 sec
+
+Best model:  ARIMA(1,1,0)(0,1,1)[12]          
+Total fit time: 4.484 seconds</code></pre>
+</div>
+</div>
+<div id="0fba7c36" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>ts3_pre<span class="op">=</span>df3_fit.predict(h)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>plot_series(ts3,ts3_pre,labels<span class="op">=</span>[<span class="st">"train"</span>,<span class="st">"Auto-ARIMA"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion5_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="serie-5" class="level1">
+<h1>Serie 5</h1>
+<div id="bd90a967" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>df4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Mileage</th>
+<th data-quarto-table-cell-role="th">Price</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>19</td>
+<td>14.944</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>19</td>
+<td>14.799</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>20</td>
+<td>24.760</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>20</td>
+<td>14.929</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>20</td>
+<td>13.949</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">5</th>
+<td>21</td>
+<td>17.879</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">6</th>
+<td>21</td>
+<td>11.650</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">7</th>
+<td>21</td>
+<td>23.300</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">8</th>
+<td>22</td>
+<td>17.899</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">9</th>
+<td>23</td>
+<td>21.498</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">10</th>
+<td>24</td>
+<td>13.249</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">11</th>
+<td>25</td>
+<td>9.599</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">12</th>
+<td>25</td>
+<td>10.989</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">13</th>
+<td>27</td>
+<td>13.945</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">14</th>
+<td>28</td>
+<td>13.071</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">15</th>
+<td>32</td>
+<td>6.599</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">16</th>
+<td>33</td>
+<td>9.410</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">17</th>
+<td>34</td>
+<td>5.866</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">18</th>
+<td>35</td>
+<td>6.488</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="6b2f2571" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>dates4<span class="op">=</span>pd.to_numeric(df4[<span class="st">"Mileage"</span>])</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>ts4<span class="op">=</span>pd.Series(np.array(df4[<span class="st">"Price"</span>]),index<span class="op">=</span>dates4)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="2559ccd1" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>ts4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>Mileage
+19    14.944
+19    14.799
+20    24.760
+20    14.929
+20    13.949
+21    17.879
+21    11.650
+21    23.300
+22    17.899
+23    21.498
+24    13.249
+25     9.599
+25    10.989
+27    13.945
+28    13.071
+32     6.599
+33     9.410
+34     5.866
+35     6.488
+dtype: float64</code></pre>
+</div>
+</div>
+<div id="ae11d597" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>plot_series(ts4,labels<span class="op">=</span>[<span class="st">"train"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion5_files/figure-html/cell-30-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="serie-6" class="level1">
+<h1>Serie 6</h1>
+<div id="4a697dca" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df5</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Month</th>
+<th data-quarto-table-cell-role="th">HouseSales</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">0</th>
+<td>1956-01-01</td>
+<td>55</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">1</th>
+<td>1956-02-01</td>
+<td>60</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">2</th>
+<td>1956-03-01</td>
+<td>68</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">3</th>
+<td>1956-04-01</td>
+<td>63</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">4</th>
+<td>1956-05-01</td>
+<td>65</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">...</th>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">270</th>
+<td>1978-07-01</td>
+<td>64</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">271</th>
+<td>1978-08-01</td>
+<td>63</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">272</th>
+<td>1978-09-01</td>
+<td>55</td>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th">273</th>
+<td>1978-10-01</td>
+<td>54</td>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th">274</th>
+<td>1978-11-01</td>
+<td>44</td>
+</tr>
+</tbody>
+</table>
+
+<p>275 rows × 2 columns</p>
+</div>
+</div>
+</div>
+<div id="933dadc1" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>dates5<span class="op">=</span>pd.to_datetime(df5[<span class="st">"Month"</span>])</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>ts5<span class="op">=</span>pd.Series(np.array(df5[<span class="st">"HouseSales"</span>]),index<span class="op">=</span>dates5)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="edbd047a" class="cell" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df5_fit <span class="op">=</span> pm.auto_arima(ts5, start_p<span class="op">=</span><span class="dv">1</span>, start_q<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                              max_p<span class="op">=</span><span class="dv">4</span>, max_q<span class="op">=</span><span class="dv">4</span>, m<span class="op">=</span><span class="dv">12</span>, start_P<span class="op">=</span><span class="dv">0</span>, </span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                              seasonal<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                              d<span class="op">=</span><span class="dv">1</span>, D<span class="op">=</span><span class="dv">1</span>, trace<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                              error_action<span class="op">=</span><span class="st">'ignore'</span>,  <span class="co"># don't want to know if an order does not work</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>                              suppress_warnings<span class="op">=</span><span class="va">True</span>,  <span class="co"># don't want convergence warnings</span></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                              stepwise<span class="op">=</span><span class="va">True</span>)  <span class="co"># set to stepwise</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Performing stepwise search to minimize aic
+ ARIMA(1,1,1)(0,1,1)[12]             : AIC=inf, Time=0.73 sec
+ ARIMA(0,1,0)(0,1,0)[12]             : AIC=1690.202, Time=0.02 sec
+ ARIMA(1,1,0)(1,1,0)[12]             : AIC=1633.997, Time=0.07 sec
+ ARIMA(0,1,1)(0,1,1)[12]             : AIC=inf, Time=0.40 sec
+ ARIMA(1,1,0)(0,1,0)[12]             : AIC=1689.378, Time=0.03 sec
+ ARIMA(1,1,0)(2,1,0)[12]             : AIC=1619.080, Time=0.26 sec
+ ARIMA(1,1,0)(2,1,1)[12]             : AIC=inf, Time=2.49 sec
+ ARIMA(1,1,0)(1,1,1)[12]             : AIC=inf, Time=0.73 sec
+ ARIMA(0,1,0)(2,1,0)[12]             : AIC=1618.152, Time=0.32 sec
+ ARIMA(0,1,0)(1,1,0)[12]             : AIC=1634.148, Time=0.07 sec
+ ARIMA(0,1,0)(2,1,1)[12]             : AIC=inf, Time=1.25 sec
+ ARIMA(0,1,0)(1,1,1)[12]             : AIC=inf, Time=0.35 sec
+ ARIMA(0,1,1)(2,1,0)[12]             : AIC=1618.780, Time=0.30 sec
+ ARIMA(1,1,1)(2,1,0)[12]             : AIC=1615.016, Time=0.60 sec
+ ARIMA(1,1,1)(1,1,0)[12]             : AIC=1628.633, Time=0.17 sec
+ ARIMA(1,1,1)(2,1,1)[12]             : AIC=inf, Time=2.22 sec
+ ARIMA(1,1,1)(1,1,1)[12]             : AIC=inf, Time=0.77 sec
+ ARIMA(2,1,1)(2,1,0)[12]             : AIC=1615.740, Time=0.87 sec
+ ARIMA(1,1,2)(2,1,0)[12]             : AIC=1615.917, Time=0.64 sec
+ ARIMA(0,1,2)(2,1,0)[12]             : AIC=1616.640, Time=0.37 sec
+ ARIMA(2,1,0)(2,1,0)[12]             : AIC=1618.350, Time=0.37 sec
+ ARIMA(2,1,2)(2,1,0)[12]             : AIC=1617.223, Time=1.46 sec
+ ARIMA(1,1,1)(2,1,0)[12] intercept   : AIC=1616.932, Time=2.32 sec
+
+Best model:  ARIMA(1,1,1)(2,1,0)[12]          
+Total fit time: 16.849 seconds</code></pre>
+</div>
+</div>
+<div id="7f1dac58" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ts5_pre<span class="op">=</span>df5_fit.predict(h)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>plot_series(ts5,ts5_pre,labels<span class="op">=</span>[<span class="st">"train"</span>,<span class="st">"Auto-ARIMA"</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="sesion5_files/figure-html/cell-34-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="f8bcf1b8" class="cell" data-execution_count="39">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>session_info.show(html<span class="op">=</span><span class="va">False</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-----
+matplotlib          3.9.4
+numpy               2.0.2
+pandas              2.3.1
+pmdarima            2.0.4
+session_info        v1.0.1
+sktime              0.38.5
+statsmodels         0.14.5
+-----
+IPython             8.18.1
+jupyter_client      8.6.3
+jupyter_core        5.8.1
+-----
+Python 3.9.23 | packaged by conda-forge | (main, Jun  4 2025, 17:57:12) [GCC 13.3.0]
+Linux-6.8.0-87-generic-x86_64-with-glibc2.39
+-----
+Session information updated at 2025-11-08 05:26</code></pre>
+</div>
+</div>
+</section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{e._ascencio_g.,
   author = {E. Ascencio G., Luis},
