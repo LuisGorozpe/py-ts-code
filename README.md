@@ -1,9 +1,11 @@
 <div align="left" style="position: relative;">
-<img src="https://cdn-icons-png.flaticon.com/512/6295/6295417.png" align="right" width="28%" style="margin: -20px 0 0 20px;">
 
 # PY-TS-CODE
 
+<img src="portada.png" align="right" width="60%" style="margin: -20px 0 0 20px;">
+
 ### Advanced Python Programming Practices and Introduction to Time Series Analysis
+
 
 Official repository containing the notebooks and datasets used in the workshop.
 
