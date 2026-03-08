@@ -2,7 +2,7 @@
 
 # PY-TS-CODE
 
-<img src="portada.png" align="right" width="60%" style="margin: -20px 0 0 20px;">
+<img src="portada.png" align="right" width="50%" style="margin: -20px 0 0 20px;">
 
 ### Advanced Python Programming Practices and Introduction to Time Series Analysis
 
