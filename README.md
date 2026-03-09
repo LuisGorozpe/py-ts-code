@@ -235,8 +235,9 @@ These directories include:
 
 To run the notebooks locally you will need:
 
-- Python **≥ 3.13.5**
-- JupyterLab or Jupyter Notebook
+- Python **>=3.11,<3.14**
+- Poetry or Ananconda 
+- JupyterLab, Jupyter Notebook or VScode.
 
 ---
 
